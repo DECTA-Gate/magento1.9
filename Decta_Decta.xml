@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Decta_Decta>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Decta_Decta>
+    </modules>
+</config>
