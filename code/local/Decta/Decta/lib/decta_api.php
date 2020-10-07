@@ -12,7 +12,7 @@ Class DectaAPI
 
     public function create_payment($params)
     {
-        $this->log_log(sprintf("Loading payment form for order #%s", $params['number']));
+        $this->log_info(sprintf("Loading payment form for order #%s", $params['number']));
         $result = $this->call('POST', '/api/v0.6/orders/', $params);
         if ($result == NULL)
         {
@@ -22,7 +22,7 @@ Class DectaAPI
 
         if (isset($result['full_page_checkout']) && isset($result['id']))
         {
-            $this->log_log(sprintf("Form loaded successfully for order #%s", $params['number']));
+            $this->log_info(sprintf("Form loaded successfully for order #%s", $params['number']));
             return $result;
         }
         else
@@ -45,7 +45,7 @@ Class DectaAPI
 
     public function was_payment_successful($order_id, $payment_id)
     {
-        $this->log_log(sprintf("Validating payment for order #%s, payment #%s", $order_id, $payment_id));
+        $this->log_info(sprintf("Validating payment for order #%s, payment #%s", $order_id, $payment_id));
 
         $order_id = (string)$order_id;
         $result = $this->call('GET', sprintf('/api/v0.6/orders/%s/', $payment_id));
@@ -63,7 +63,7 @@ Class DectaAPI
 
         if ($result && $payment_has_matching_order_id && ($result['status'] == 'paid' || $result['status'] == 'withdrawn'))
         {
-            $this->log_log(sprintf("Validated order #%s, payment #%s", $order_id, $payment_id));
+            $this->log_info(sprintf("Validated order #%s, payment #%s", $order_id, $payment_id));
             return true;
         }
         else
@@ -157,7 +157,7 @@ Class DectaAPI
         return $result;
     }
 
-    public function log_log($text, $error_data = NULL)
+    public function log_info($text, $error_data = NULL)
     {
         $text = "DECTA log: " . $text . ";";
         $this->logger->log(DECTA_MODULE_VERSION . ' ' . $text);
