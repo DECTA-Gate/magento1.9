@@ -35,7 +35,7 @@ class Decta_Decta_Model_Decta extends Mage_Payment_Model_Method_Abstract
 
         $params = array(
             'number' => (string)$order_id,
-            'referrer' => 'Magento v1.x module ' . DECTA_MODULE_VERSION,
+            'referrer' => 'magento v1.x module ' . DECTA_MODULE_VERSION,
             'language' =>  $this->_language('en'),
             'success_redirect' => Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) . 'Decta/response?result=success',
             'failure_redirect' => Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) . 'Decta/response?result=failure',
