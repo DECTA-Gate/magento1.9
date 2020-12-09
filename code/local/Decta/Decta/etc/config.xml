@@ -69,4 +69,26 @@
                 </Decta>
              </payment>
         </default>
+        <frontend>
+            <translate>
+                <modules>
+                    <Decta_Decta>
+                        <files>
+                            <additional_file>Decta_Decta.csv</additional_file>
+                        </files>
+                    </Decta_Decta>
+                </modules>
+            </translate>
+        </frontend>
+        <adminhtml>
+            <translate>
+                <modules>
+                    <Decta_Decta>
+                        <files>
+                            <additional_file>Decta_Decta.csv</additional_file>
+                        </files>
+                    </Decta_Decta>
+                </modules>
+            </translate>
+        </adminhtml>
     </config>

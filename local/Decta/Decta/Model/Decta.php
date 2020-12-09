@@ -33,19 +33,32 @@ class Decta_Decta_Model_Decta extends Mage_Payment_Model_Method_Abstract
             new DectaLoggerMagento()
         );
 
+        $language = locale_get_primary_language(Mage::app()->getLocale()->getLocaleCode());
+
         $params = array(
             'number' => (string)$order_id,
             'referrer' => 'magento v1.x module ' . DECTA_MODULE_VERSION,
-            'language' =>  $this->_language('en'),
+            'language' =>  $this->_language($language),
             'success_redirect' => Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) . 'Decta/response?result=success',
             'failure_redirect' => Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) . 'Decta/response?result=failure',
             'currency' => $order->getOrderCurrencyCode()
         );
 
         $this->addUserData($order, $decta, $params);
+
+        $title = 'Invoice for payment #';
+
+        if ($language === 'ru') {
+            $title = 'Счет на оплату #';
+        }
+
+        if ($language === 'lv') {
+            $title = 'Maksājuma rēķins #';
+        }
+
         $params['products'][] = [
             'price' => round($order->getGrandTotal(), 2),
-            'title' => 'default',
+            'title' => $title . (string)$order_id,
             'quantity' => 1
         ];
 
