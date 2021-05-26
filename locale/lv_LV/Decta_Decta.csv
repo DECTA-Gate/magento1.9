@@ -1,3 +1,7 @@
 "Name","Nosaukums"
 "Public key","Publiskā atslēga"
 "Secret key","Slepenā atslēga"
+"Enable module","Iespējot moduli"
+"Obtainable from an API Key set in the payment gateway","To var iegūt API vārda izveides lapā maksājumu vārtejā."
+"New order status","Jauna pasūtījuma statuss"
+"Order status after payment","Pasūtījuma statuss pēc apmaksas"
