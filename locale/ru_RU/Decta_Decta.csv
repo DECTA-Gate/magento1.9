@@ -1,3 +1,7 @@
 "Name","Имя"
 "Public key","Публичный ключ"
 "Secret key","Секретный ключ"
+"Enable module","Включить модуль"
+"Obtainable from an API Key set in the payment gateway","Можно получить на странице создания API ключа в платежном шлюзе"
+"New order status","Статус нового заказа"
+"Order status after payment","Статус заказа после оплаты"
